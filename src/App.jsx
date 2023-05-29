@@ -16,7 +16,9 @@ function App() {
       name: "Juan",
     },
   ]);
+  
   const handleDragEnd = () => {};
+  
   return (
     <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
       <h1>Users List</h1>
