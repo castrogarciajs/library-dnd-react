@@ -25,17 +25,24 @@ function App() {
   const handleDragEnd = () => {};
 
   return (
-    <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-      <h1>Users List</h1>
+    <main
+      style={{
+        display: "flex",
+        height: "100vh",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+        <SortableContext items={person} strategy={verticalListSortingStrategy}>
+          {/* vertical components */}
 
-      <SortableContext items={person} strategy={verticalListSortingStrategy}>
-        {/* vertical components */}
-
-        {person.map((prs) => (
-          <Person person={prs} key={prs.id} />
-        ))}
-      </SortableContext>
-    </DndContext>
+          {person.map((prs) => (
+            <Person person={prs} key={prs.id} />
+          ))}
+        </SortableContext>
+      </DndContext>
+    </main>
   );
 }
 
