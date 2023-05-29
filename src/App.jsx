@@ -22,7 +22,9 @@ function App() {
     },
   ]);
 
-  const handleDragEnd = () => {};
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+  };
 
   return (
     <main
