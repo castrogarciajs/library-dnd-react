@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { DndContext, closestCenter } from "@dnd-kit/core";
 
 function App() {
   const [person, setPerson] = useState([
@@ -15,7 +16,12 @@ function App() {
       name: "Juan",
     },
   ]);
-  return <h1>App</h1>;
+  const handleDragEnd = () => {};
+  return (
+    <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+      <h1>Users List</h1>
+    </DndContext>
+  );
 }
 
 export default App;
