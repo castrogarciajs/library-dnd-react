@@ -4,6 +4,7 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
+import { Person } from "./components/Person";
 
 function App() {
   const [person, setPerson] = useState([
@@ -28,7 +29,11 @@ function App() {
       <h1>Users List</h1>
 
       <SortableContext items={person} strategy={verticalListSortingStrategy}>
-        {/** vertical components */}
+        {/* vertical components */}
+
+        {person.map((prs) => (
+          <Person person={prs} key={prs.id}/>
+        ))}
       </SortableContext>
     </DndContext>
   );
