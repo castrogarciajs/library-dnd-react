@@ -32,7 +32,7 @@ function App() {
         {/* vertical components */}
 
         {person.map((prs) => (
-          <Person person={prs} key={prs.id}/>
+          <Person person={prs} key={prs.id} />
         ))}
       </SortableContext>
     </DndContext>
