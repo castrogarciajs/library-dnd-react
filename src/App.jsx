@@ -3,6 +3,7 @@ import { DndContext, closestCenter } from "@dnd-kit/core";
 import {
   SortableContext,
   verticalListSortingStrategy,
+  arrayMove,
 } from "@dnd-kit/sortable";
 import { Person } from "./components/Person";
 
@@ -22,7 +23,13 @@ function App() {
     },
   ]);
 
-  const handleDragEnd = () => {};
+  const handleDragEnd = (event) => {
+    const oldIndx = person.findIndex((prs) => prs.id === event.active.id);
+    const newIndx = person.findIndex((prs) => prs.id === event.over.id);
+
+    const orderArray = arrayMove(person, oldIndx, newIndx);
+    setPerson(orderArray);
+  };
 
   return (
     <main
